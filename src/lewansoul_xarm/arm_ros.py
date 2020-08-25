@@ -63,7 +63,7 @@ class arm_ros(object):
             # convert gripper servo angles to cm
             if self._arm._name == "gripper":
                 # measured joint state
-                measured_jp = -self._arm.measured_jp()/69 - 0.01
+                measured_jp = self._arm.measured_jp()/69  ## fixed
                 self._js_msg.position[:] = measured_jp.flat
                 self._measured_js_publisher.publish(self._js_msg)
                 # goal joint position

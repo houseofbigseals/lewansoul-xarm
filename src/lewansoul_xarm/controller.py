@@ -143,10 +143,11 @@ class controller(object):
     def move_jp(self, servo_ids, goals_si, time_s = 0.0):
         nb_servos = len(goals_si)
         assert nb_servos == len(servo_ids)
-
+        # TODO mb check it here
         # should be replaced by computation using optimal joint velocities
         if time_s == 0.0:
-            time_s = 2.0
+            #time_s = 2.0
+            time_s = 0.5
         elif time_s > 20:
             time_s = 20.0
         time_ms = int(time_s * 1000)
